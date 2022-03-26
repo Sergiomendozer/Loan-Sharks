@@ -75,42 +75,49 @@ for (var a = 1; a < months + 1; a++) {
   loan_info_table[a].push("$" + payment);
 }
 
-// make for look por principle paid
+// math.rounds after all calculations
+// b.push together
 var r_balance = principle;
 var interest_paid = 0;
 for (var b = 1; b < months + 1; b++) {
-  var interest_amount = monthly_rate * r_balance * 100;
-  interest_amount = Math.round(interest_amount) / 100;
-  var c_principle = (payment - interest_amount) * 100;
-  c_principle = Math.round(c_principle) / 100;
+  var interest_amount = monthly_rate * r_balance;
+  var c_principle = payment - interest_amount;
+  interest_paid = interest_paid + interest_amount;
+  r_balance = principle - b * payment; //! math round to b*payment
+
+  //   r_balance = Math.round(r_balance * 100) / 100;
+  //   interest_amount = interest_amount * 100;
+  //   c_principle = c_principle * 100;
+  // rounds up numbers
+  c_principle = Math.round(c_principle * 100) / 100;
+  interest_amount = Math.round(interest_amount * 100) / 100;
+  interest_paid = Math.round(interest_paid * 100) / 100;
+  r_balance = Math.round(r_balance * 100) / 100;
+
   loan_info_table[b].push("$" + c_principle);
   loan_info_table[b].push("$" + interest_amount);
-
-  interest_paid = interest_paid + interest_amount;
   loan_info_table[b].push("$" + interest_paid);
-
-  r_balance = principle - b * payment; //! math round to b*payment
-  r_balance = Math.round(r_balance * 100) / 100;
   loan_info_table[b].push("$" + r_balance);
 }
 
+//!
 // var r_balance = principle;
-// r_balance = principle - payment;
-// console.log(z);
-// for (
-//   var r_balance = principle;
-//   r_balance > -1;
-//   r_balance = principle - payment
-// ) {
-//   loan_info_table.push(r_balance);
+// var interest_paid = 0;
+// for (var b = 1; b < months + 1; b++) {
+//   var interest_amount = monthly_rate * r_balance * 100;
+//   interest_amount = Math.round(interest_amount) / 100;
+//   var c_principle = (payment - interest_amount) * 100;
+//   c_principle = Math.round(c_principle) / 100;
+//   loan_info_table[b].push("$" + c_principle);
+//   loan_info_table[b].push("$" + interest_amount);
+
+//   interest_paid = interest_paid + interest_amount;
+//   interest_paid = Math.round(interest_paid * 100) / 100;
+//   loan_info_table[b].push("$" + interest_paid);
+
+//   r_balance = principle - b * payment; //! math round to b*payment
+//   r_balance = Math.round(r_balance * 100) / 100;
+//   loan_info_table[b].push("$" + r_balance);
 // }
-
-//! console.log(monthly_rate);
-// var r_balance = principle;
-// // var c_interest = monthly_rate * r_balance;
-// r_balance = principle - payment;
-
-// // console.log(c_interest);
-// console.log(r_balance);
 
 console.table(loan_info_table);
