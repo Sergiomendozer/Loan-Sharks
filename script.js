@@ -34,18 +34,18 @@ percentage_principle = percentage_principle.toFixed(2) + "%";
 percentage_interest = percentage_interest.toFixed(2) + "%";
 
 console.log("Monthly Payment: $" + payment);
-console.log("Total principle: $" + principle);
+console.log("Total Principle: $" + principle);
 console.log("Total Interest: $" + total_interest);
 console.log("Total Loan: $" + total_loan);
 console.log(" "); // empty to separate
-console.log(percentage_principle);
-console.log(percentage_interest);
+console.log("Principle Percentage: " + percentage_principle);
+console.log("Interest Percentage: " + percentage_interest);
 var loan_info_table = [
   [
     "Month",
     "Payment",
     "Principle",
-    "Current Interest",
+    "Interest amount",
     "Interest paid",
     "Balance owed",
   ],
@@ -76,9 +76,10 @@ for (var a = 1; a < months + 1; a++) {
 }
 
 // make for look por principle paid
-
 var r_balance = principle;
 for (var b = 1; b < months + 1; b++) {
+  var interest_amount = Math.round(monthly_rate * r_balance * 100) / 100;
+  loan_info_table[b].push("$" + interest_amount);
   r_balance = principle - b * payment; //! math round to b*payment
   r_balance = Math.round(r_balance * 100) / 100;
   loan_info_table[b].push("$" + r_balance);
