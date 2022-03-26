@@ -32,8 +32,15 @@ console.log("Monthly Payment: $" + payment);
 console.log("Total principle: $" + principle);
 console.log("Total Interest: $" + total_interest);
 console.log("Total Loan: $" + total_loan);
-var table = [
-  ["Month", "Payment", "Interest", "Total Interest", "Balance owed"],
+var loan_info_table = [
+  [
+    "Month",
+    "Payment",
+    "Principle",
+    "Current Interest",
+    "Interest paid",
+    "Balance owed",
+  ],
 ];
 var column = [];
 for (var n = 1; n < months + 1; n++) {
@@ -45,16 +52,47 @@ for (var i = 1; i < months + 1; i++) {
 }
 
 //! console.log(column[1]); for testing
-// console.log(column[2]);
-// console.log(column[3]);
-// console.log(column[4]);
-// console.log(column[5]);
-// console.log(column[6]);
-// console.log(column[11]);
+//! console.log(column[2]);
+//! console.log(column[3]);
+//! console.log(column[4]);
+//! console.log(column[5]);
+//! console.log(column[6]);
+//! console.log(column[11]);
 //! console.log(column[12]); for testing
+// for loop if for appending/pushing float/loan info elements
+// var r_balance = principle;
+
 for (var a = 1; a < months + 1; a++) {
-  table.push(column[a]);
-  table[a].push("$" + payment);
+  loan_info_table.push(column[a]);
+  loan_info_table[a].push("$" + payment);
 }
 
-console.table(table);
+// make for look por principle paid
+
+var r_balance = principle;
+for (var b = 1; b < months + 1; b++) {
+  r_balance = principle - b * payment; //! math round to b*payment
+  r_balance = Math.round(r_balance * 100) / 100;
+  loan_info_table[b].push("$" + r_balance);
+}
+
+// var r_balance = principle;
+// r_balance = principle - payment;
+// console.log(z);
+// for (
+//   var r_balance = principle;
+//   r_balance > -1;
+//   r_balance = principle - payment
+// ) {
+//   loan_info_table.push(r_balance);
+// }
+
+//! console.log(monthly_rate);
+// var r_balance = principle;
+// // var c_interest = monthly_rate * r_balance;
+// r_balance = principle - payment;
+
+// // console.log(c_interest);
+// console.log(r_balance);
+
+console.table(loan_info_table);
