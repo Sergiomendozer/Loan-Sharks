@@ -1,12 +1,11 @@
-//
-// function cal_loan(){
-
-// }
+//? Other tests
+//? test 2
 // var principle = parseFloat(15000);
 // var months = parseFloat(60);
 // var rate = parseFloat(3.5) / 100;
 // var monthly_rate = rate / 12;
-//'
+//?
+
 var principle = parseFloat(5000);
 var months = parseFloat(12);
 var rate = parseFloat(6.0) / 100;
@@ -98,3 +97,4 @@ for (var b = 1; b < months + 1; b++) {
 }
 
 console.table(loan_info_table);
+//! make sure at the top all rounding is together
