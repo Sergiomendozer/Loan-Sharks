@@ -77,6 +77,7 @@ for (var a = 1; a < months + 1; a++) {
 
 // make for look por principle paid
 var r_balance = principle;
+var interest_paid = 0;
 for (var b = 1; b < months + 1; b++) {
   var interest_amount = monthly_rate * r_balance * 100;
   interest_amount = Math.round(interest_amount) / 100;
@@ -84,6 +85,9 @@ for (var b = 1; b < months + 1; b++) {
   c_principle = Math.round(c_principle) / 100;
   loan_info_table[b].push("$" + c_principle);
   loan_info_table[b].push("$" + interest_amount);
+
+  interest_paid = interest_paid + interest_amount;
+  loan_info_table[b].push("$" + interest_paid);
 
   r_balance = principle - b * payment; //! math round to b*payment
   r_balance = Math.round(r_balance * 100) / 100;
