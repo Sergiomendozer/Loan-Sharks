@@ -68,7 +68,6 @@ for (var i = 1; i < months + 1; i++) {
 //! console.log(column[11]);
 //! console.log(column[12]); for testing
 // for loop if for appending/pushing float/loan info elements
-// var r_balance = principle;
 
 for (var a = 1; a < months + 1; a++) {
   loan_info_table.push(column[a]);
@@ -78,16 +77,14 @@ for (var a = 1; a < months + 1; a++) {
 // math.rounds after all calculations
 // b.push together
 var r_balance = principle;
+console.log(r_balance);
 var interest_paid = 0;
 for (var b = 1; b < months + 1; b++) {
   var interest_amount = monthly_rate * r_balance;
   var c_principle = payment - interest_amount;
   interest_paid = interest_paid + interest_amount;
-  r_balance = principle - b * payment; //! math round to b*payment
+  r_balance = r_balance - c_principle;
 
-  //   r_balance = Math.round(r_balance * 100) / 100;
-  //   interest_amount = interest_amount * 100;
-  //   c_principle = c_principle * 100;
   // rounds up numbers
   c_principle = Math.round(c_principle * 100) / 100;
   interest_amount = Math.round(interest_amount * 100) / 100;
@@ -99,25 +96,5 @@ for (var b = 1; b < months + 1; b++) {
   loan_info_table[b].push("$" + interest_paid);
   loan_info_table[b].push("$" + r_balance);
 }
-
-//!
-// var r_balance = principle;
-// var interest_paid = 0;
-// for (var b = 1; b < months + 1; b++) {
-//   var interest_amount = monthly_rate * r_balance * 100;
-//   interest_amount = Math.round(interest_amount) / 100;
-//   var c_principle = (payment - interest_amount) * 100;
-//   c_principle = Math.round(c_principle) / 100;
-//   loan_info_table[b].push("$" + c_principle);
-//   loan_info_table[b].push("$" + interest_amount);
-
-//   interest_paid = interest_paid + interest_amount;
-//   interest_paid = Math.round(interest_paid * 100) / 100;
-//   loan_info_table[b].push("$" + interest_paid);
-
-//   r_balance = principle - b * payment; //! math round to b*payment
-//   r_balance = Math.round(r_balance * 100) / 100;
-//   loan_info_table[b].push("$" + r_balance);
-// }
 
 console.table(loan_info_table);
