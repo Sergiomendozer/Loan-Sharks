@@ -36,7 +36,7 @@ var table = [
   ["Month", "Payment", "Interest", "Total Interest", "Balance owed"],
 ];
 var column = [];
-for (var n = 1; n < 5; n++) {
+for (var n = 1; n < months + 1; n++) {
   column[n] = "empty";
 }
 column;
@@ -44,7 +44,7 @@ console.log(column[1]);
 console.log(column[2]);
 console.log(column[3]);
 console.log(column[4]);
-for (var i = 1; i < 5; i++) {
+for (var i = 1; i < months + 1; i++) {
   column[i] = Object.assign([String(i)], i);
 }
 
@@ -52,5 +52,9 @@ console.log(column[1]);
 console.log(column[2]);
 console.log(column[3]);
 console.log(column[4]);
+console.log(column[5]);
+console.log(column[6]);
+console.log(column[11]);
+console.log(column[12]);
 
 // console.table(table);
