@@ -18,10 +18,10 @@ console.log(p);
 payment = p.toFixed(2); // 3.14 returns a string
 
 var total_principle = amount;
-var total_cost = String(months * parseFloat(payment));
-var total_interest = String(parseFloat(total_cost) - amount);
+var total_loan = String(months * parseFloat(payment));
+var total_interest = String(parseFloat(total_loan) - amount);
 
 console.log("monthly payment: " + payment);
-console.log();
-console.log("total cost: " + total_cost);
+console.log("Total interest to pay: ");
+console.log("total Loan: " + total_loan);
 console.log(months);
