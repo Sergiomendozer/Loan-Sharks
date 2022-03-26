@@ -28,8 +28,10 @@ var total_interest = String(parseFloat(total_loan) - principle);
 total_interest = Math.round(total_interest * 100) / 100;
 total_interest = total_interest.toFixed(2); // 3.14 returns a string
 
-var percentage_principle = principle / total_loan;
+var percentage_principle = (principle / total_loan) * 100;
 var percentage_interest = total_interest / total_loan;
+percentage_principle = percentage_principle.toFixed(2) + "%";
+
 console.log("Monthly Payment: $" + payment);
 console.log("Total principle: $" + principle);
 console.log("Total Interest: $" + total_interest);
