@@ -14,18 +14,16 @@ var monthly_rate = rate / 12;
 //
 var numerator = principle * monthly_rate * Math.pow(1 + monthly_rate, months);
 var denominator = Math.pow(1 + monthly_rate, months) - 1;
-var p = numerator / denominator;
-// var p = 153.195;
-//! console.log(p);
-p = Math.round(p * 100) / 100;
-//! console.log(p);
-payment = p.toFixed(2); // 3.14 returns a string
+var z = numerator / denominator;
+
+p = Math.round(z * 100) / 100;
+payment = p.toFixed(2);
 
 var total_principle = principle;
 var total_loan = String(months * parseFloat(payment));
 var total_interest = String(parseFloat(total_loan) - principle);
 total_interest = Math.round(total_interest * 100) / 100;
-total_interest = total_interest.toFixed(2); // 3.14 returns a string
+total_interest = total_interest.toFixed(2);
 
 var percentage_principle = (principle / total_loan) * 100;
 var percentage_interest = (total_interest / total_loan) * 100;
@@ -46,7 +44,7 @@ var loan_info_table = [
     "Principle",
     "Interest amount",
     "Interest paid",
-    "Balance owed",
+    "Remaining Balance",
   ],
 ];
 var column = [];
@@ -76,11 +74,11 @@ for (var a = 1; a < months + 1; a++) {
 // math.rounds after all calculations
 // b.push together
 var r_balance = principle;
-console.log(r_balance);
+// console.log(r_balance);
 var interest_paid = 0;
 for (var b = 1; b < months + 1; b++) {
   var interest_amount = monthly_rate * r_balance;
-  var c_principle = payment - interest_amount;
+  var c_principle = z - interest_amount;
   interest_paid = interest_paid + interest_amount;
   r_balance = r_balance - c_principle;
 
