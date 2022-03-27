@@ -1,17 +1,48 @@
-//? Other tests
+//? TESTS
+//? test 1
+// var principle = parseFloat(20000);
+// var months = parseFloat(60);
+// var rate = parseFloat(10) / 100;
 //? test 2
 // var principle = parseFloat(15000);
 // var months = parseFloat(60);
 // var rate = parseFloat(3.5) / 100;
-// var monthly_rate = rate / 12;
-//?
+//? test 3
+// var principle = parseFloat(5000);
+// var months = parseFloat(12);
+// var rate = parseFloat(6.0) / 100;
+//? test 4
+// var principle = parseFloat(80000);
+// var months = parseFloat(120);
+// var rate = parseFloat(1.5) / 100;
+//? test 5
+// var principle = parseFloat(55000);
+// var months = parseFloat(60);
+// var rate = parseFloat(15.1) / 100;
+//? test 6
+// var principle = parseFloat(47000);
+// var months = parseFloat(60);
+// var rate = parseFloat(11.13) / 100;
+//? test 7
+// var principle = parseFloat(778023);
+// var months = parseFloat(180);
+// var rate = parseFloat(5.89) / 100;
+//? test 8
+// var principle = parseFloat(178023);
+// var months = parseFloat(60);
+// var rate = parseFloat(2.3) / 100;
+//? test 9
+// var principle = parseFloat(60000);
+// var months = parseFloat(60);
+// var rate = parseFloat(23) / 100;
+//? test 10
+// var principle = parseFloat(160000);
+// var months = parseFloat(60);
+// var rate = parseFloat(4.43) / 100;
 
-var principle = parseFloat(5000);
-var months = parseFloat(12);
-var rate = parseFloat(6.0) / 100;
-var monthly_rate = rate / 12;
-
+//! next last payment can be diff can be more or less
 //! above it the inputted values
+var monthly_rate = rate / 12;
 var numerator = principle * monthly_rate * Math.pow(1 + monthly_rate, months);
 var denominator = Math.pow(1 + monthly_rate, months) - 1;
 var payment = numerator / denominator;
