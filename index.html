@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h>Loan Sharks</h>
     <!-- create background and high font with header -->
     <div class="grid-container">
         <div class="inputs">
         <p>Loan Amount</p>
-            <input type="number" id ="Loan Amount" onchange="get_value(event, id)"></input>
+            <input type="number" id ="loan_amount" min="0" onchange = "get_value(event)"></input>
 
-        <p>Payments (months)</p>
-            <input type="number" id ="Loan Amount" onchange="get_value(event, id)"></input>
+        <p>Number of Payments</p>
+            <input type="number" id ="Loan Amount" min="0"></input>
         
         <p>Rate </p>
-            <input type="number" id ="Loan Amount" onchange="get_value(event, id)" min="0" max="100"></input>
+            <input type="number" id ="Loan Amount" min="0" max="100"></input>
 
-        <button type="button" class="btn btn-primary btn-lg">Calculate</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="start()">Calculate</button>
         </div>
         <div class="calculations">
         <p>Monthly Payments:</p>
@@ -49,6 +48,6 @@
         </tr>
       </table>
   </body>
-  <script src="./scriptsjs"></script>
+  <script src="./scripts.js"></script>
   <link rel="stylesheet" href="./styles.css" />
 </html>
