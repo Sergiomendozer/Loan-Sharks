@@ -2,16 +2,25 @@
 <html>
   <body>
     <h>Loan Sharks</h>
-    <p>Loan Amount</p>
-        <input type="number" id ="Loan Amount" onchange="get_value(event, id)"></input>
+    <div class="grid-container">
+        <div class="inputs">
+        <p>Loan Amount</p>
+            <input type="number" id ="Loan Amount" onchange="get_value(event, id)"></input>
 
-    <p>Payments (months)</p>
-        <input type="number" id ="Loan Amount" onchange="get_value(event, id)"></input>
-    
-    <p>Rate </p>
-        <input type="number" id ="Loan Amount" onchange="get_value(event, id)" min="0" max="100"></input>
-
-    <p></p>
+        <p>Payments (months)</p>
+            <input type="number" id ="Loan Amount" onchange="get_value(event, id)"></input>
+        
+        <p>Rate </p>
+            <input type="number" id ="Loan Amount" onchange="get_value(event, id)" min="0" max="100"></input>
+        </div>
+        <div class="calculations">
+        <p>Monthly Payments:</p>
+        <p>Total Principle:</p>
+        <p>Total Interest:</p>
+        <p>Total Loan:</p>
+        </div>
+        <p>logo</p>
+    </div>
 
     <!-- console.log("Monthly Payment: $" + payment_rounded);
 console.log("Total Principle: $" + principle);
