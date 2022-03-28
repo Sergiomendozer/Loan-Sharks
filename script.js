@@ -4,10 +4,10 @@
 // var months = parseFloat(60);
 // var rate = parseFloat(10) / 100;
 //? test 2
-// var principle = parseFloat(15000);
-// var months = parseFloat(60);
-// var rate = parseFloat(3.5) / 100;
-//? test 3
+var principle = parseFloat(15000);
+var months = parseFloat(60);
+var rate = parseFloat(3.5) / 100;
+// ? test 3
 // var principle = parseFloat(5000);
 // var months = parseFloat(12);
 // var rate = parseFloat(6.0) / 100;
@@ -96,14 +96,6 @@ for (var i = 1; i < months + 1; i++) {
   column[i] = Object.assign([String(i)], i);
 }
 
-//! console.log(column[1]); for testing
-//! console.log(column[2]);
-//! console.log(column[3]);
-//! console.log(column[4]);
-//! console.log(column[5]);
-//! console.log(column[6]);
-//! console.log(column[11]);
-//! console.log(column[12]); for testing
 // for loop if for appending/pushing float/loan info elements
 
 for (var a = 1; a < months + 1; a++) {
@@ -112,7 +104,14 @@ for (var a = 1; a < months + 1; a++) {
 }
 
 // math.rounds after all calculations
-// b.push together
+// b.push together//! console.log(column[1]); for testing
+//! console.log(column[2]);
+//! console.log(column[3]);
+//! console.log(column[4]);
+//! console.log(column[5]);
+//! console.log(column[6]);
+//! console.log(column[11]);
+//! console.log(column[12]); for testing
 var r_balance = principle;
 // console.log(r_balance);
 var interest_paid = 0;
@@ -126,14 +125,20 @@ for (var b = 1; b < months + 1; b++) {
   c_principle = Math.round(c_principle * 100) / 100;
   interest_amount = Math.round(interest_amount * 100) / 100;
   interest_paid = Math.round(interest_paid * 100) / 100;
-  r_balance = Math.round(r_balance * 100) / 100;
+  var remaining_balance = Math.round(r_balance * 100) / 100;
 
   // pushing values to table
   loan_info_table[b].push("$" + c_principle);
   loan_info_table[b].push("$" + interest_amount);
   loan_info_table[b].push("$" + interest_paid);
-  loan_info_table[b].push("$" + r_balance);
+  loan_info_table[b].push("$" + remaining_balance);
 }
-
-console.table(loan_info_table);
+console.log(loan_info_table[months][5]);
+console.log();
+if (loan_info_table[months][5] == "$0") {
+  console.table(loan_info_table);
+} else {
+  console.log("called");
+  console.table(loan_info_table);
+}
 //! make sure at the top all rounding is together
