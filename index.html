@@ -2,6 +2,7 @@
 <html>
   <body>
     <h>Loan Sharks</h>
+    <!-- create background and high font with header -->
     <div class="grid-container">
         <div class="inputs">
         <p>Loan Amount</p>
@@ -12,6 +13,8 @@
         
         <p>Rate </p>
             <input type="number" id ="Loan Amount" onchange="get_value(event, id)" min="0" max="100"></input>
+
+        <button type="button" class="btn btn-primary btn-lg">Calculate</button>
         </div>
         <div class="calculations">
         <p>Monthly Payments:</p>
@@ -19,7 +22,14 @@
         <p>Total Interest:</p>
         <p>Total Loan:</p>
         </div>
-        <p>logo</p>
+        <div class = "Percentages">
+            <p>Principle Percentage: </p>
+            <p>Interest  Percentage: </p>
+            <p>Pie Chart</p>
+        </div>
+        <div>
+            <p>logo</p>
+        </div>
     </div>
 
     <!-- console.log("Monthly Payment: $" + payment_rounded);
