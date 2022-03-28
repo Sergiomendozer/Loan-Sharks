@@ -1,44 +1,8 @@
-//? TESTS
-//? test 1
-// var principle = parseFloat(20000);
-// var months = parseFloat(60);
-// var rate = parseFloat(10) / 100;
-//? test 2
-var principle = parseFloat(15000);
-var months = parseFloat(60);
-var rate = parseFloat(3.5) / 100;
-// ? test 3
-// var principle = parseFloat(5000);
-// var months = parseFloat(12);
-// var rate = parseFloat(6.0) / 100;
-//? test 4
-// var principle = parseFloat(80000);
-// var months = parseFloat(120);
-// var rate = parseFloat(1.5) / 100;
-//? test 5
-// var principle = parseFloat(55000);
-// var months = parseFloat(60);
-// var rate = parseFloat(15.1) / 100;
-//? test 6
-// var principle = parseFloat(47000);
-// var months = parseFloat(60);
-// var rate = parseFloat(11.13) / 100;
-//? test 7
-// var principle = parseFloat(778023);
-// var months = parseFloat(180);
-// var rate = parseFloat(5.89) / 100;
-//? test 8
-// var principle = parseFloat(178023);
-// var months = parseFloat(60);
-// var rate = parseFloat(2.3) / 100;
-//? test 9
-// var principle = parseFloat(60000);
-// var months = parseFloat(60);
-// var rate = parseFloat(23) / 100;
-//? test 10
-// var principle = parseFloat(160000);
-// var months = parseFloat(60);
-// var rate = parseFloat(4.43) / 100;
+// ? test 3 pass
+var principle = parseFloat(5000);
+var months = parseFloat(12);
+var rate = parseFloat(6.0) / 100;
+//? start of calculations
 
 //! next last payment can be diff can be more or less
 //! above it the inputted values
@@ -60,12 +24,14 @@ var percentage_principle = (principle / total_loan) * 100;
 var percentage_interest = (total_interest / total_loan) * 100;
 
 // function makes sure number is not rounded up
-function toFixed(num, fixed) {
-  var re = new RegExp("^-?\\d+(?:.\\d{0," + (fixed || -1) + "})?");
-  return num.toString().match(re)[0];
-}
-total_loan = toFixed(total_loan, 2);
-total_interest = toFixed(total_interest, 2);
+// function toFixed(num, fixed) {
+//   var re = new RegExp("^-?\\d+(?:.\\d{0," + (fixed || -1) + "})?");
+//   return num.toString().match(re)[0];
+// }
+total_loan = Math.round(total_loan * 100) / 100;
+// total_loan = toFixed(total_loan, 2);
+// total_interest = toFixed(total_interest, 2);
+total_interest = Math.round(total_interest * 100) / 100;
 // total_loan = total_loan.toFixed(2);
 percentage_principle = percentage_principle.toFixed(2) + "%";
 percentage_interest = percentage_interest.toFixed(2) + "%";
