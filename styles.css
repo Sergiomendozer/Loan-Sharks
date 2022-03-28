@@ -11,3 +11,9 @@ th,
 td {
   border: 1px solid black;
 }
+.top-table {
+  background-color: #3053ae;
+  color: rgb(226, 226, 226);
+  font-weight: bold;
+  text-align: center;
+}
