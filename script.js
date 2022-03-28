@@ -112,33 +112,34 @@ for (var a = 1; a < months + 1; a++) {
 //! console.log(column[6]);
 //! console.log(column[11]);
 //! console.log(column[12]); for testing
-var r_balance = principle;
-// console.log(r_balance);
+var remaining_balance = principle;
+// console.log(remaining_balance);
 var interest_paid = 0;
 for (var b = 1; b < months + 1; b++) {
-  var interest_amount = monthly_rate * r_balance;
+  var interest_amount = monthly_rate * remaining_balance;
   var c_principle = payment - interest_amount;
   interest_paid = interest_paid + interest_amount;
-  r_balance = r_balance - c_principle;
+  remaining_balance = remaining_balance - c_principle;
 
   // rounds up numbers before pushing to table
   c_principle = Math.round(c_principle * 100) / 100;
   interest_amount = Math.round(interest_amount * 100) / 100;
-  interest_paid = Math.round(interest_paid * 100) / 100;
-  var remaining_balance = Math.round(r_balance * 100) / 100;
+  interest_paid_rounded = Math.round(interest_paid * 100) / 100;
+  var remaining_balance_rounded = Math.round(remaining_balance * 100) / 100;
 
   // pushing values to table
   loan_info_table[b].push("$" + c_principle);
   loan_info_table[b].push("$" + interest_amount);
-  loan_info_table[b].push("$" + interest_paid);
-  loan_info_table[b].push("$" + remaining_balance);
+  loan_info_table[b].push("$" + interest_paid_rounded);
+  loan_info_table[b].push("$" + remaining_balance_rounded);
 }
-console.log(loan_info_table[months][5]);
-console.log();
-if (loan_info_table[months][5] == "$0") {
-  console.table(loan_info_table);
-} else {
-  console.log("called");
-  console.table(loan_info_table);
-}
+// console.log(loan_info_table[months][5]);
+// console.log();
+// if (loan_info_table[months][5] == "$0") {
+//   console.table(loan_info_table);
+// } else {
+//   console.log("called");
+//   console.table(loan_info_table);
+// }
+console.table(loan_info_table);
 //! make sure at the top all rounding is together
