@@ -2,9 +2,25 @@
 <html>
   <body>
     <h>Loan Sharks</h>
-    <p>Loan Amount
-    <input type="number" id ="Loan Amount" onchange="get_value(event, id)"></input>
-    </p>
+    <p>Loan Amount</p>
+        <input type="number" id ="Loan Amount" onchange="get_value(event, id)"></input>
+
+    <p>Payments (months)</p>
+        <input type="number" id ="Loan Amount" onchange="get_value(event, id)"></input>
+    
+    <p>Rate </p>
+        <input type="number" id ="Loan Amount" onchange="get_value(event, id)" min="0" max="100"></input>
+
+    <p></p>
+
+    <!-- console.log("Monthly Payment: $" + payment_rounded);
+console.log("Total Principle: $" + principle);
+console.log("Total Interest: $" + total_interest);
+console.log("Total Loan: $" + total_loan);
+console.log(" "); // empty to separate
+console.log("Principle Percentage: " + percentage_principle);
+console.log("Interest Percentage: " + percentage_interest); -->
+
   </body>
   <script src="./scriptsjs"></script>
   <link rel="stylesheet" href="./styles.css" />
