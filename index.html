@@ -4,16 +4,16 @@
     <!-- create background and high font with header -->
     <div class="grid-container">
         <div class="inputs">
-        <p>Loan Amount</p>
-            <input type="number" id ="loan_amount" min="0" onchange = "get_value(event)"></input>
+        <p>Principle</p>
+            <input type="number" id ="principle" min="0" onchange = "get_principle(event)"></input>
 
         <p>Number of Payments</p>
-            <input type="number" id ="Loan Amount" min="0"></input>
+            <input type="number" id ="months" min="0" onchange = "get_months(event)"></input>
         
         <p>Rate </p>
-            <input type="number" id ="Loan Amount" min="0" max="100"></input>
+            <input type="number" id ="rate" min="0" max="100" onchange = "get_rate(event)"></input>
 
-        <button type="button" class="btn btn-primary btn-lg" onclick="start()">Calculate</button>
+        <button type="button" class="btn btn-primary btn-lg" onclick="calculations()">Calculate</button>
         </div>
         <div class="calculations">
         <p>Monthly Payments:</p>
