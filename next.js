@@ -1,4 +1,4 @@
 //TODO: start
-//TODO: deletes some code
-//TODO: add comments
+//! deletes some code
+//! comments
 //TODO: create html hello world file for test

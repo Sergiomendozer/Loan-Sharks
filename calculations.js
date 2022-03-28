@@ -4,11 +4,12 @@ var months = parseFloat(12);
 var rate = parseFloat(6.0) / 100;
 //? start of calculations
 
+// payment calculations
 var monthly_rate = rate / 12;
 var numerator = principle * monthly_rate * Math.pow(1 + monthly_rate, months);
 var denominator = Math.pow(1 + monthly_rate, months) - 1;
 var payment = numerator / denominator;
-
+//payment rounded calculation
 payment_rounded = Math.round(payment * 100) / 100;
 var payment_rounded = payment_rounded.toFixed(2);
 
@@ -16,9 +17,11 @@ var total_principle = principle;
 var total_loan = months * parseFloat(payment);
 var total_interest = parseFloat(total_loan) - principle;
 
+//percentage calculations
 var percentage_principle = (principle / total_loan) * 100;
 var percentage_interest = (total_interest / total_loan) * 100;
 
+// rounded up numbers
 total_loan = Math.round(total_loan * 100) / 100;
 total_interest = Math.round(total_interest * 100) / 100;
 percentage_principle = percentage_principle.toFixed(2) + "%";
@@ -31,6 +34,8 @@ console.log("Total Loan: $" + total_loan);
 console.log(" "); // empty to separate
 console.log("Principle Percentage: " + percentage_principle);
 console.log("Interest Percentage: " + percentage_interest);
+
+// main array that will be displayed for user and contains loan information
 var loan_info_table = [
   [
     "Month",
@@ -41,25 +46,32 @@ var loan_info_table = [
     "Remaining Balance",
   ],
 ];
+
+// for loop creates n number amount of arrays
+//[n] this is created until it
 var column = [];
 for (var n = 1; n < months + 1; n++) {
   column[n] = "empty";
 }
 column;
+
+//for loop turns integer into string in arrays created above
 for (var i = 1; i < months + 1; i++) {
   column[i] = Object.assign([String(i)], i);
 }
 
-// for loop if for appending/pushing float/loan info elements
-
+// for loop if for appending/pushing loan info elements
 for (var a = 1; a < months + 1; a++) {
   loan_info_table.push(column[a]);
   loan_info_table[a].push("$" + payment_rounded);
 }
 
+//for loop calculates current_principle, interest_amount,interest_paid_rounded,remaining_balance
+//for loop also pushes/appends result of calculations to main array loan_info_table
 var remaining_balance = principle;
 var interest_paid = 0;
 for (var b = 1; b < months + 1; b++) {
+  //Calculations
   var interest_amount = monthly_rate * remaining_balance;
   var c_principle = payment - interest_amount;
   interest_paid = interest_paid + interest_amount;
