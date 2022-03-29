@@ -7,9 +7,9 @@ var b = 3;
 // var percentage_principle = null;
 // var percentage_interest = null;
 
+//  function is used to create a pie chart of percentage of principle and Interest
 google.charts.load("current", { packages: ["corechart"] });
 // google.charts.setOnLoadCallback(drawChart);
-
 function drawChart(a, b) {
   data = google.visualization.arrayToDataTable([
     ["Type", "amount"],
@@ -32,7 +32,7 @@ function drawChart(a, b) {
 
 function test() {
   document.getElementById("principle").value = 5000;
-  document.getElementById("months").value = 60;
+  document.getElementById("months").value = 12;
   document.getElementById("rate").value = 6;
 }
 
@@ -51,26 +51,22 @@ function calculations() {
     console.log("rate: " + rate); //!for testing
     /////////////////////////////////////
     // payment calculations
+    rate = rate / 100; // converts percentage to decimal
     var monthly_rate = rate / 12;
     var numerator =
       principle * monthly_rate * Math.pow(1 + monthly_rate, months);
     var denominator = Math.pow(1 + monthly_rate, months) - 1;
     var payment = numerator / denominator;
-    console.log("payment: " + payment);
     //payment rounded calculation
     payment_rounded = Math.round(payment * 100) / 100;
     var payment_rounded = "$" + payment_rounded.toFixed(2);
 
     var total_principle = principle;
     var total_loan = months * parseFloat(payment);
-    console.log("TL: " + total_loan);
     var total_interest = parseFloat(total_loan) - principle;
-    console.log("TI: " + total_interest);
     //percentage calculations
     var percentage_principle = principle / total_loan;
     var percentage_interest = total_interest / total_loan;
-    console.log("pp" + percentage_principle);
-    console.log(percentage_interest);
 
     // console.log(data);
     // var percentage_principle = (principle / total_loan) * 100;
@@ -91,6 +87,7 @@ function calculations() {
       "Total Interest: " + total_interest;
     document.getElementById("total_loan").innerHTML =
       "Total Loan: " + total_loan;
+    // prints out pie chart
     google.charts.setOnLoadCallback(
       drawChart(percentage_principle, percentage_interest)
     ); // prints out pie chart
