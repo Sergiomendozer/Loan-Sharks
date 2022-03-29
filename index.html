@@ -42,40 +42,54 @@
 </br>
     <table style="width:100%">
         <tr class = "top-table">
-          <td>Month</td>
-          <td>Payment</td>
-          <td>Principle</td>
-          <td>Interest amount</td>
-          <td>Interest paid</td>
-          <td>Remaining Balance</td>
+            <td>Month</td>
+            <td>Payment</td>
+            <td>Principle</td>
+            <td>Interest amount</td>
+            <td>Interest paid</td>
+            <td>Remaining Balance</td>
         </tr>
-        <tr id="column"></tr>
-        <!-- <tr>
-            <div id="column"></div>
-        </tr> -->
-        <tr>
-          <td>test 1</td>
-          <!-- <div id="col1"></div> -->
-        </tr>
-        <tr>
-            <td>test</td>
-        </tr>
+        <td id="Month row"></td>
+        <td id="Payment row"></td>
+        <td id="Principle row"></td>
+        <td id="Interest amount row"></td>
+        <td id="Interest paid row"></td>
+        <td id="Remaining Balance row"></td>
+        
+
       </table>
   </body>
   <script>
-      for (i =1; i <5;i++){
+      for (i =1; i <12;i++){
     const table = document.createElement("tr");
     table.setAttribute("Id", "col" + i);
     const et = document.createTextNode("");
     table.appendChild(et);
-    const element = document.getElementById("column");
+    const element = document.getElementById("Month row");
     element.appendChild(table);
 
     const para = document.createElement("tr");
     const node = document.createTextNode(i);
     para.appendChild(node);
     const abc = document.getElementById("col" + i);
-    abc.appendChild(para);}
+    abc.appendChild(para);
+    }
+
+    // for (p =1; p <12;p++){
+    // const table1 = document.createElement("tr");
+    // table1.setAttribute("Id", "col" + i);
+    // const et1 = document.createTextNode("1");
+    // table1.appendChild(et);
+    // const element1= document.getElementById("payment");
+    // element1.appendChild(table1);}
+
+    // const para = document.createElement("tr");
+    // const node = document.createTextNode(i);
+    // para.appendChild(node);
+    // const abc = document.getElementById("col" + i);
+    // abc.appendChild(para);
+    
+
 
     // const para2 = document.createElement("td");
     // const node2 = document.createTextNode("two");
