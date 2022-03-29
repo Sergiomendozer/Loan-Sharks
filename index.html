@@ -5,21 +5,23 @@
     <div class="grid-container">
         <div class="inputs">
         <p>Principle</p>
-            <input type="number" id ="principle" min="0"></input>
+            <input type="number" id ="principle" min="0" value =""></input>
 
         <p>Number of Payments</p>
-            <input type="number" id ="months" min="0"></input>
+            <input type="number" id ="months" min="0" value =""></input>
         
         <p>Rate </p>
-            <input type="number" id ="rate" min="0" max="100"></input>
+            <input type="number" id ="rate" min="0" max="100" value =""></input>
 
         <button type="button" class="btn btn-primary btn-lg" onclick="calculations()">Calculate</button>
+
+        <button type="button" class="btn btn-primary btn-lg" onclick="test()">test</button>
         </div>
         <div class="calculations">
-        <p>Monthly Payments:</p>
-        <p>Total Principle:</p>
-        <p>Total Interest:</p>
-        <p>Total Loan:</p>
+        <p id ="monthly_payments" >Monthly Payments:</p>
+        <p id ="total_principle">Total Principle:</p>
+        <p id ="total_interest">Total Interest:</p>
+        <p id ="total_loan">Total Loan:</p>
         </div>
         <div class = "Percentages">
             <p>Principle Percentage: </p>
