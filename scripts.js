@@ -56,17 +56,21 @@ function calculations() {
       principle * monthly_rate * Math.pow(1 + monthly_rate, months);
     var denominator = Math.pow(1 + monthly_rate, months) - 1;
     var payment = numerator / denominator;
+    console.log("payment: " + payment);
     //payment rounded calculation
     payment_rounded = Math.round(payment * 100) / 100;
     var payment_rounded = "$" + payment_rounded.toFixed(2);
 
     var total_principle = principle;
     var total_loan = months * parseFloat(payment);
+    console.log("TL: " + total_loan);
     var total_interest = parseFloat(total_loan) - principle;
-
+    console.log("TI: " + total_interest);
     //percentage calculations
     var percentage_principle = principle / total_loan;
     var percentage_interest = total_interest / total_loan;
+    console.log("pp" + percentage_principle);
+    console.log(percentage_interest);
 
     // console.log(data);
     // var percentage_principle = (principle / total_loan) * 100;
