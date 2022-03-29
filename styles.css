@@ -17,3 +17,14 @@ td {
   font-weight: bold;
   text-align: center;
 }
+
+.pie_chart {
+  background-color: rgb(226, 226, 226);
+}
+.calculations {
+  text-align: center;
+  font-size: 1.5vw;
+}
+#monthly_payments {
+  font-size: 2.5vw;
+}
