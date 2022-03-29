@@ -2,6 +2,29 @@ var principle = null;
 var months = null;
 var rate = null;
 
+google.charts.load("current", { packages: ["corechart"] });
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+    ["Type", "amount"],
+    ["Principle", 3],
+    ["Interest", 5],
+  ]);
+
+  var options = {
+    title: "Principle & Interest percentages",
+  };
+
+  var chart = new google.visualization.PieChart(
+    document.getElementById("pie_chart")
+  );
+
+  chart.draw(data, options);
+}
+
+///
+
 function test() {
   document.getElementById("principle").value = 5000;
   document.getElementById("months").value = 60;
@@ -48,19 +71,19 @@ function calculations() {
     principle = "$" + principle;
 
     document.getElementById("monthly_payments").innerHTML =
-      "Monthly Payment:" + payment_rounded;
+      "Monthly Payment: " + payment_rounded;
     document.getElementById("total_principle").innerHTML =
-      "Total Principle:" + principle;
+      "Total Principle: " + principle;
     document.getElementById("total_interest").innerHTML =
-      "Total Interest:" + total_interest;
+      "Total Interest: " + total_interest;
     document.getElementById("total_loan").innerHTML =
-      "Total Loan:" + total_loan;
+      "Total Loan: " + total_loan;
 
     console.log("Monthly Payment:" + payment_rounded); //!for testing
     console.log("Total Principle:" + principle); //!for testing
     console.log("Total Interest:" + total_interest); //!for testing
     console.log("Total Loan:" + total_loan); //!for testing
-    console.log(" "); // empty to separate
+    console.log(" "); // empty to separate //!for testing
     console.log("Principle Percentage: " + percentage_principle); //!for testing
     console.log("Interest Percentage: " + percentage_interest); //!for testing
   }
