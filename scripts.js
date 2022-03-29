@@ -2,8 +2,8 @@ var principle = null;
 var months = null;
 var rate = null;
 var data = null;
-var a = 1;
-var b = 3;
+// var a = 1;
+// var b = 3;
 // var percentage_principle = null;
 // var percentage_interest = null;
 
@@ -91,6 +91,12 @@ function calculations() {
     google.charts.setOnLoadCallback(
       drawChart(percentage_principle, percentage_interest)
     ); // prints out pie chart
+
+    // document.getElementById("making_columns").innerHTML = (
+    //   <tr>
+    //     <td>c1</td>
+    //   </tr>
+    // );
 
     console.log("Monthly Payment:" + payment_rounded); //!for testing
     console.log("Total Principle:" + principle); //!for testing

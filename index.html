@@ -16,7 +16,7 @@
         <p style="font-size:1.5vw" >Number of Payments</p>
             <input type="number" id ="months" min="0" value =""></input>
         
-        <p style="font-size:1.5vw" >Rate </p>
+        <p style="font-size:1.5vw" >% Rate </p>
             <input type="number" id ="rate" min="0" max="100" value =""></input>
 
         <button type="button" class="btn btn-primary btn-lg" onclick="calculations()">Calculate</button>
@@ -49,14 +49,40 @@
           <td>Interest paid</td>
           <td>Remaining Balance</td>
         </tr>
+        <tr id="column"></tr>
+        <!-- <tr>
+            <div id="column"></div>
+        </tr> -->
         <tr>
           <td>test 1</td>
+          <!-- <div id="col1"></div> -->
         </tr>
         <tr>
             <td>test</td>
         </tr>
       </table>
   </body>
+  <script>
+      for (i =1; i <5;i++){
+    const table = document.createElement("tr");
+    table.setAttribute("Id", "col" + i);
+    const et = document.createTextNode("");
+    table.appendChild(et);
+    const element = document.getElementById("column");
+    element.appendChild(table);
+
+    const para = document.createElement("tr");
+    const node = document.createTextNode(i);
+    para.appendChild(node);
+    const abc = document.getElementById("col" + i);
+    abc.appendChild(para);}
+
+    // const para2 = document.createElement("td");
+    // const node2 = document.createTextNode("two");
+    // para.appendChild(node);
+    // const abc2 = document.getElementById("col" + 1);
+    // abc2.appendChild(para);
+  </script>
   <script src="./scripts.js"></script>
   <link rel="stylesheet" href="./styles.css" />
 </html>
