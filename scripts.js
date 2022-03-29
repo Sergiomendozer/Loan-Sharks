@@ -1,15 +1,20 @@
 var principle = null;
 var months = null;
 var rate = null;
+var data = null;
+var a = 1;
+var b = 3;
+// var percentage_principle = null;
+// var percentage_interest = null;
 
 google.charts.load("current", { packages: ["corechart"] });
-google.charts.setOnLoadCallback(drawChart);
+// google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
-  var data = google.visualization.arrayToDataTable([
+function drawChart(a, b) {
+  data = google.visualization.arrayToDataTable([
     ["Type", "amount"],
-    ["Principle", 3],
-    ["Interest", 5],
+    ["Principle", a],
+    ["Interest", b],
   ]);
 
   var options = {
@@ -60,14 +65,18 @@ function calculations() {
     var total_interest = parseFloat(total_loan) - principle;
 
     //percentage calculations
-    var percentage_principle = (principle / total_loan) * 100;
-    var percentage_interest = (total_interest / total_loan) * 100;
+    var percentage_principle = principle / total_loan;
+    var percentage_interest = total_interest / total_loan;
+
+    // console.log(data);
+    // var percentage_principle = (principle / total_loan) * 100;
+    // var percentage_interest = (total_interest / total_loan) * 100;
 
     // rounded up numbers
     total_loan = "$" + Math.round(total_loan * 100) / 100;
     total_interest = "$" + Math.round(total_interest * 100) / 100;
-    percentage_principle = percentage_principle.toFixed(2) + "%";
-    percentage_interest = percentage_interest.toFixed(2) + "%";
+    // percentage_principle = percentage_principle.toFixed(2) + "%";
+    // percentage_interest = percentage_interest.toFixed(2) + "%";
     principle = "$" + principle;
 
     document.getElementById("monthly_payments").innerHTML =
@@ -78,6 +87,9 @@ function calculations() {
       "Total Interest: " + total_interest;
     document.getElementById("total_loan").innerHTML =
       "Total Loan: " + total_loan;
+    google.charts.setOnLoadCallback(
+      drawChart(percentage_principle, percentage_interest)
+    ); // prints out pie chart
 
     console.log("Monthly Payment:" + payment_rounded); //!for testing
     console.log("Total Principle:" + principle); //!for testing
