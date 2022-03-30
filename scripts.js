@@ -92,12 +92,6 @@ function calculations() {
       drawChart(percentage_principle, percentage_interest)
     ); // prints out pie chart
 
-    // document.getElementById("making_columns").innerHTML = (
-    //   <tr>
-    //     <td>c1</td>
-    //   </tr>
-    // );
-
     console.log("Monthly Payment:" + payment_rounded); //!for testing
     console.log("Total Principle:" + principle); //!for testing
     console.log("Total Interest:" + total_interest); //!for testing
@@ -105,5 +99,36 @@ function calculations() {
     console.log(" "); // empty to separate //!for testing
     console.log("Principle Percentage: " + percentage_principle); //!for testing
     console.log("Interest Percentage: " + percentage_interest); //!for testing
+
+    //append table elements
+    // for loop appends i into months chart
+    for (i = 1; i < months + 1; i++) {
+      const table_tag_M = document.createElement("tr");
+      table_tag_M.setAttribute("Id", "Month" + i);
+      const empty_element_M = document.createTextNode("");
+      table_tag_M.appendChild(empty_element_M);
+      const doc_M = document.getElementById("Month row");
+      doc_M.appendChild(table_tag_M);
+
+      const Tag_row_M = document.createElement("tr");
+      const Month_i = document.createTextNode(i);
+      Tag_row_M.appendChild(Month_i);
+      const id_M = document.getElementById("Month" + i);
+      id_M.appendChild(Tag_row_M);
+
+      // Payments table append html
+      const table_tag_payment = document.createElement("tr");
+      table_tag_payment.setAttribute("Id", "Payment" + i);
+      const empty_element_payment = document.createTextNode("");
+      table_tag_payment.appendChild(empty_element_payment);
+      const doc_payment = document.getElementById("Payment row");
+      doc_payment.appendChild(table_tag_payment);
+
+      const Tag_row_payment = document.createElement("tr");
+      const Payment_i = document.createTextNode(payment_rounded);
+      Tag_row_payment.appendChild(Payment_i);
+      const id_payment = document.getElementById("Payment" + i);
+      id_payment.appendChild(Tag_row_payment);
+    }
   }
 }

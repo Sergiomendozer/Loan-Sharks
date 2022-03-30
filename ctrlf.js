@@ -1,12 +1,12 @@
-const table_tag_Interest_paid = document.createElement("tr");
-table_tag_Interest_paid.setAttribute("Id", "Interest paid" + i);
-const empty_element_Interest_paid = document.createTextNode("");
-table_tag_Interest_paid.appendChild(empty_element_Interest_paid);
-const doc_Interest_paid = document.getElementById("Interest paid row");
-doc_Interest_paid.appendChild(table_tag_Interest_paid);
+const table_tag_Remaining_Balance = document.createElement("tr");
+table_tag_Remaining_Balance.setAttribute("Id", "Remaining Balance" + i);
+const empty_element_Remaining_Balance = document.createTextNode("");
+table_tag_Remaining_Balance.appendChild(empty_element_Remaining_Balance);
+const doc_Remaining_Balance = document.getElementById("Remaining Balance row");
+doc_Remaining_Balance.appendChild(table_tag_Remaining_Balance);
 
-const Tag_row_Interest_paid = document.createElement("tr");
-const Interest_paid_i = document.createTextNode("$Interest paid");
-Tag_row_Interest_paid.appendChild(Interest_paid_i);
-const id_Interest_paid = document.getElementById("Interest paid" + i);
-id_Interest_paid.appendChild(Tag_row_Interest_paid);
+const Tag_row_Remaining_Balance = document.createElement("tr");
+const Remaining_Balance_i = document.createTextNode("$Remaining Balance");
+Tag_row_Remaining_Balance.appendChild(Remaining_Balance_i);
+const id_Remaining_Balance = document.getElementById("Remaining Balance" + i);
+id_Remaining_Balance.appendChild(Tag_row_Remaining_Balance);
