@@ -102,7 +102,6 @@ function calculations() {
 
     //append table elements
     // for loop appends i into months chart
-    console.log(remaining_balance);
     for (i = 1; i < months + 1; i++) {
       const table_tag_M = document.createElement("tr");
       table_tag_M.setAttribute("Id", "Month" + i);
@@ -134,5 +133,8 @@ function calculations() {
     console.log("second for loop");
     var remaining_balance = principle;
     var interest_paid = 0;
+    for (var c = 1; c < months + 1; c++) {
+      console.log(c);
+    }
   }
 }
