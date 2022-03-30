@@ -147,6 +147,8 @@ function calculations() {
       Tag_row_principle.appendChild(Principle_i);
       const id_principle = document.getElementById("Principle" + c);
       id_principle.appendChild(Tag_row_principle);
+      let txt = document.getElementById("Principle" + c);
+      txt.style.textAlign = "center";
 
       //Interest amount.
       const table_tag_interest_amount = document.createElement("tr");
