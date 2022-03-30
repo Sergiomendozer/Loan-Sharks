@@ -14,6 +14,7 @@ function drawChart(a, b) {
 
   var options = {
     title: "Principle & Interest percentages",
+    backgroundColor: { fill: "#e2e2e2" },
   };
 
   var chart = new google.visualization.PieChart(

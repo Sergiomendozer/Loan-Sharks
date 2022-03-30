@@ -8,9 +8,9 @@
 // var months = parseFloat(60);
 // var rate = parseFloat(3.5) / 100;
 // ? test 3 pass
-var principle = parseFloat(5000);
-var months = parseFloat(12);
-var rate = parseFloat(6.0) / 100;
+// var principle = parseFloat(5000);
+// var months = parseFloat(12);
+// var rate = parseFloat(6.0) / 100;
 //? test 4 pass
 // var principle = parseFloat(80000);
 // var months = parseFloat(120);
