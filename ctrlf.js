@@ -1,13 +1,13 @@
-//Principle.
-const table_tag_principle = document.createElement("tr");
-table_tag_principle.setAttribute("Id", "Principle" + i);
-const empty_element_principle = document.createTextNode("");
-table_tag_principle.appendChild(empty_element_principle);
-const doc_principle = document.getElementById("Principle row");
-doc_principle.appendChild(table_tag_principle);
+//Interest amount.
+const table_tag_interest_amount = document.createElement("tr");
+table_tag_interest_amount.setAttribute("Id", "Interest amount" + i);
+const empty_element_interest_amount = document.createTextNode("");
+table_tag_interest_amount.appendChild(empty_element_interest_amount);
+const doc_interest_amount = document.getElementById("Interest amount row");
+doc_interest_amount.appendChild(table_tag_interest_amount);
 
-const Tag_row_principle = document.createElement("tr");
-const Principle_i = document.createTextNode("$Principle");
-Tag_row_principle.appendChild(Principle_i);
-const id_principle = document.getElementById("Principle" + i);
-id_principle.appendChild(Tag_row_principle);
+const Tag_row_interest_amount = document.createElement("tr");
+const Interest_amount_i = document.createTextNode("$Interest amount");
+Tag_row_interest_amount.appendChild(Interest_amount_i);
+const id_interest_amount = document.getElementById("Interest amount" + i);
+id_interest_amount.appendChild(Tag_row_interest_amount);

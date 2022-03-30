@@ -135,15 +135,15 @@ function calculations() {
     var interest_paid = 0;
     for (var c = 1; c < months + 1; c++) {
       console.log(c);
-      console.log(remaining_balance);
+      //   console.log(remaining_balance);
       //Calculations
       var interest_amount = monthly_rate * remaining_balance;
-      console.log(remaining_balance);
-      console.log(interest_amount);
-      console.log(payment);
+      //   console.log(remaining_balance);
+      //   console.log(interest_amount);
+      //   console.log(payment);
       var c_principle = payment - interest_amount;
 
-      console.log(c_principle);
+      //   console.log(c_principle);
       interest_paid = interest_paid + interest_amount;
       remaining_balance = remaining_balance - c_principle;
 
@@ -153,7 +153,7 @@ function calculations() {
       interest_paid_rounded = Math.round(interest_paid * 100) / 100;
       var remaining_balance_rounded = Math.round(remaining_balance * 100) / 100;
 
-      //Principle.
+      //Principle append
       const table_tag_principle = document.createElement("tr");
       table_tag_principle.setAttribute("Id", "Principle" + c);
       const empty_element_principle = document.createTextNode("");
@@ -166,6 +166,22 @@ function calculations() {
       Tag_row_principle.appendChild(Principle_i);
       const id_principle = document.getElementById("Principle" + c);
       id_principle.appendChild(Tag_row_principle);
+
+      //Interest amount.
+      const table_tag_interest_amount = document.createElement("tr");
+      table_tag_interest_amount.setAttribute("Id", "Interest amount" + c);
+      const empty_element_interest_amount = document.createTextNode("");
+      table_tag_interest_amount.appendChild(empty_element_interest_amount);
+      const doc_interest_amount = document.getElementById(
+        "Interest amount row"
+      );
+      doc_interest_amount.appendChild(table_tag_interest_amount);
+
+      const Tag_row_interest_amount = document.createElement("tr");
+      const Interest_amount_i = document.createTextNode("$" + interest_amount);
+      Tag_row_interest_amount.appendChild(Interest_amount_i);
+      const id_interest_amount = document.getElementById("Interest amount" + c);
+      id_interest_amount.appendChild(Tag_row_interest_amount);
 
       // pushing values to table
       //   loan_info_table[b].push("$" + c_principle);
