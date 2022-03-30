@@ -2,14 +2,9 @@ var principle = null;
 var months = null;
 var rate = null;
 var data = null;
-// var a = 1;
-// var b = 3;
-// var percentage_principle = null;
-// var percentage_interest = null;
 
 //  function is used to create a pie chart of percentage of principle and Interest
 google.charts.load("current", { packages: ["corechart"] });
-// google.charts.setOnLoadCallback(drawChart);
 function drawChart(a, b) {
   data = google.visualization.arrayToDataTable([
     ["Type", "amount"],
@@ -68,15 +63,9 @@ function calculations() {
     var percentage_principle = principle / total_loan;
     var percentage_interest = total_interest / total_loan;
 
-    // console.log(data);
-    // var percentage_principle = (principle / total_loan) * 100;
-    // var percentage_interest = (total_interest / total_loan) * 100;
-
     // rounded up numbers
     total_loan = "$" + Math.round(total_loan * 100) / 100;
     total_interest = "$" + Math.round(total_interest * 100) / 100;
-    // percentage_principle = percentage_principle.toFixed(2) + "%";
-    // percentage_interest = percentage_interest.toFixed(2) + "%";
 
     document.getElementById("monthly_payments").innerHTML =
       "Monthly Payment: " + payment_rounded;
@@ -129,21 +118,12 @@ function calculations() {
       const id_payment = document.getElementById("Payment" + i);
       id_payment.appendChild(Tag_row_payment);
     }
-    console.log("second for loop");
     var remaining_balance = principle;
-    // console.log(remaining_balance);
     var interest_paid = 0;
     for (var c = 1; c < months + 1; c++) {
-      console.log(c);
-      //   console.log(remaining_balance);
       //Calculations
       var interest_amount = monthly_rate * remaining_balance;
-      //   console.log(remaining_balance);
-      //   console.log(interest_amount);
-      //   console.log(payment);
       var c_principle = payment - interest_amount;
-
-      //   console.log(c_principle);
       interest_paid = interest_paid + interest_amount;
       remaining_balance = remaining_balance - c_principle;
 
@@ -218,12 +198,6 @@ function calculations() {
         "Remaining Balance" + c
       );
       id_Remaining_Balance.appendChild(Tag_row_Remaining_Balance);
-
-      // pushing values to table
-      //   loan_info_table[b].push("$" + c_principle);
-      //   loan_info_table[b].push("$" + interest_amount);
-      //   loan_info_table[b].push("$" + interest_paid_rounded);
-      //   loan_info_table[b].push("$" + remaining_balance_rounded);
     }
   }
 }
