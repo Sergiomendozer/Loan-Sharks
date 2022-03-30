@@ -77,12 +77,11 @@ function calculations() {
     total_interest = "$" + Math.round(total_interest * 100) / 100;
     // percentage_principle = percentage_principle.toFixed(2) + "%";
     // percentage_interest = percentage_interest.toFixed(2) + "%";
-    principle = "$" + principle;
 
     document.getElementById("monthly_payments").innerHTML =
       "Monthly Payment: " + payment_rounded;
     document.getElementById("total_principle").innerHTML =
-      "Total Principle: " + principle;
+      "Total Principle: $" + principle;
     document.getElementById("total_interest").innerHTML =
       "Total Interest: " + total_interest;
     document.getElementById("total_loan").innerHTML =
@@ -132,9 +131,47 @@ function calculations() {
     }
     console.log("second for loop");
     var remaining_balance = principle;
+    // console.log(remaining_balance);
     var interest_paid = 0;
     for (var c = 1; c < months + 1; c++) {
       console.log(c);
+      console.log(remaining_balance);
+      //Calculations
+      var interest_amount = monthly_rate * remaining_balance;
+      console.log(remaining_balance);
+      console.log(interest_amount);
+      console.log(payment);
+      var c_principle = payment - interest_amount;
+
+      console.log(c_principle);
+      interest_paid = interest_paid + interest_amount;
+      remaining_balance = remaining_balance - c_principle;
+
+      // rounds up numbers before pushing to table
+      c_principle = Math.round(c_principle * 100) / 100;
+      interest_amount = Math.round(interest_amount * 100) / 100;
+      interest_paid_rounded = Math.round(interest_paid * 100) / 100;
+      var remaining_balance_rounded = Math.round(remaining_balance * 100) / 100;
+
+      //Principle.
+      const table_tag_principle = document.createElement("tr");
+      table_tag_principle.setAttribute("Id", "Principle" + c);
+      const empty_element_principle = document.createTextNode("");
+      table_tag_principle.appendChild(empty_element_principle);
+      const doc_principle = document.getElementById("Principle row");
+      doc_principle.appendChild(table_tag_principle);
+
+      const Tag_row_principle = document.createElement("tr");
+      const Principle_i = document.createTextNode("$" + c_principle);
+      Tag_row_principle.appendChild(Principle_i);
+      const id_principle = document.getElementById("Principle" + c);
+      id_principle.appendChild(Tag_row_principle);
+
+      // pushing values to table
+      //   loan_info_table[b].push("$" + c_principle);
+      //   loan_info_table[b].push("$" + interest_amount);
+      //   loan_info_table[b].push("$" + interest_paid_rounded);
+      //   loan_info_table[b].push("$" + remaining_balance_rounded);
     }
   }
 }

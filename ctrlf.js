@@ -1,12 +1,13 @@
-const table_tag_Remaining_Balance = document.createElement("tr");
-table_tag_Remaining_Balance.setAttribute("Id", "Remaining Balance" + i);
-const empty_element_Remaining_Balance = document.createTextNode("");
-table_tag_Remaining_Balance.appendChild(empty_element_Remaining_Balance);
-const doc_Remaining_Balance = document.getElementById("Remaining Balance row");
-doc_Remaining_Balance.appendChild(table_tag_Remaining_Balance);
+//Principle.
+const table_tag_principle = document.createElement("tr");
+table_tag_principle.setAttribute("Id", "Principle" + i);
+const empty_element_principle = document.createTextNode("");
+table_tag_principle.appendChild(empty_element_principle);
+const doc_principle = document.getElementById("Principle row");
+doc_principle.appendChild(table_tag_principle);
 
-const Tag_row_Remaining_Balance = document.createElement("tr");
-const Remaining_Balance_i = document.createTextNode("$Remaining Balance");
-Tag_row_Remaining_Balance.appendChild(Remaining_Balance_i);
-const id_Remaining_Balance = document.getElementById("Remaining Balance" + i);
-id_Remaining_Balance.appendChild(Tag_row_Remaining_Balance);
+const Tag_row_principle = document.createElement("tr");
+const Principle_i = document.createTextNode("$Principle");
+Tag_row_principle.appendChild(Principle_i);
+const id_principle = document.getElementById("Principle" + i);
+id_principle.appendChild(Tag_row_principle);
