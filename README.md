@@ -19,8 +19,8 @@ HTML, JavaScript, Bootstrap, CSS
 
 ## Before & After Loan Sharks
 
-<a href="url"><img src="/images/LS_before.png" align="left" height="230" width="400" ></a>
-<a href="url"><img src="/images/LS_after.png" align="left" height="230" width="400" ></a>
+<a href="url"><img src="/images/LS_before.png" height="230" width="400" ></a>
+<a href="url"><img src="/images/LS_after.png" height="230" width="400" ></a>
 
 ## 🔗 Links
 
