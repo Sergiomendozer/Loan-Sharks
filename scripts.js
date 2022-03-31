@@ -2,6 +2,7 @@ var principle = null;
 var months = null;
 var rate = null;
 var data = null;
+var id_principle = null;
 
 //  function is used to create a pie chart of percentage of principle and Interest
 google.charts.load("current", { packages: ["corechart"] });
@@ -31,8 +32,8 @@ function test() {
   document.getElementById("months").value = 12;
   document.getElementById("rate").value = 6;
 }
-
 function calculations() {
+  clear_table();
   console.log("calculations");
   principle = parseFloat(document.getElementById("principle").value);
   months = parseFloat(document.getElementById("months").value);
@@ -46,6 +47,7 @@ function calculations() {
     console.log("#: " + months); //!for testing
     console.log("rate: " + rate); //!for testing
     /////////////////////////////////////
+    // id_principle.remove();
     // payment calculations
     rate = rate / 100; // converts percentage to decimal
     var monthly_rate = rate / 12;
@@ -147,8 +149,6 @@ function calculations() {
       Tag_row_principle.appendChild(Principle_i);
       const id_principle = document.getElementById("Principle" + c);
       id_principle.appendChild(Tag_row_principle);
-      let txt = document.getElementById("Principle" + c);
-      txt.style.textAlign = "center";
 
       //Interest amount.
       const table_tag_interest_amount = document.createElement("tr");
@@ -202,5 +202,53 @@ function calculations() {
       );
       id_Remaining_Balance.appendChild(Tag_row_Remaining_Balance);
     }
+  }
+}
+
+function clear_table() {
+  for (i = 1; i < months + 1; i++) {
+    const Tag_row_M = document.createElement("tr");
+    const Month_i = document.createTextNode(i);
+    Tag_row_M.appendChild(Month_i);
+    const id_M = document.getElementById("Month" + i);
+    id_M.appendChild(Tag_row_M);
+    id_M.remove();
+
+    const Tag_row_payment = document.createElement("tr");
+    const Payment_i = document.createTextNode(i);
+    Tag_row_payment.appendChild(Payment_i);
+    const id_payment = document.getElementById("Payment" + i);
+    id_payment.appendChild(Tag_row_payment);
+    id_payment.remove();
+
+    const Tag_row_principle = document.createElement("tr");
+    const Principle_i = document.createTextNode(i);
+    Tag_row_principle.appendChild(Principle_i);
+    const id_principle = document.getElementById("Principle" + i);
+    id_principle.appendChild(Tag_row_principle);
+    id_principle.remove();
+
+    const Tag_row_interest_amount = document.createElement("tr");
+    const Interest_amount_i = document.createTextNode(i);
+    Tag_row_interest_amount.appendChild(Interest_amount_i);
+    const id_interest_amount = document.getElementById("Interest amount" + i);
+    id_interest_amount.appendChild(Tag_row_interest_amount);
+    id_interest_amount.remove();
+
+    const Tag_row_Interest_paid = document.createElement("tr");
+    const Interest_paid_i = document.createTextNode(i);
+    Tag_row_Interest_paid.appendChild(Interest_paid_i);
+    const id_Interest_paid = document.getElementById("Interest paid" + i);
+    id_Interest_paid.appendChild(Tag_row_Interest_paid);
+    id_Interest_paid.remove();
+
+    const Tag_row_Remaining_Balance = document.createElement("tr");
+    const Remaining_Balance_i = document.createTextNode(i);
+    Tag_row_Remaining_Balance.appendChild(Remaining_Balance_i);
+    const id_Remaining_Balance = document.getElementById(
+      "Remaining Balance" + i
+    );
+    id_Remaining_Balance.appendChild(Tag_row_Remaining_Balance);
+    id_Remaining_Balance.remove();
   }
 }
