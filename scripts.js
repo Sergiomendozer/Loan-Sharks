@@ -7,12 +7,12 @@ function drawChart(a, b) {
     ["Interest", b],
   ]);
 
-  var options = {
+  let options = {
     title: "Principle & Interest percentages",
     backgroundColor: { fill: "#e2e2e2" },
   };
 
-  var chart = new google.visualization.PieChart(
+  let chart = new google.visualization.PieChart(
     document.getElementById("pie_chart")
   );
 
@@ -53,8 +53,8 @@ function calculations() {
     const denominator = Math.pow(1 + monthly_rate, months) - 1;
     const payment = numerator / denominator;
     //payment rounded calculation
-    payment_rounded = Math.round(payment * 100) / 100;
-    var payment_rounded = "$" + payment_rounded.toFixed(2);
+    const payment_rounded = Math.round(payment * 100) / 100;
+    // var payment_rounded = "$" + payment_rounded.toFixed(2);
     const total_principle = principle;
     const total_loan = months * parseFloat(payment);
     const total_interest = parseFloat(total_loan) - principle;
@@ -69,7 +69,7 @@ function calculations() {
 
     // displays: Monthly Payment to user
     document.getElementById("monthly_payments").innerHTML =
-      "Monthly Payment: " + payment_rounded;
+      "Monthly Payment: $" + payment_rounded;
     // displays: Total Principle to user
     document.getElementById("total_principle").innerHTML =
       "Total Principle: $" + principle;
@@ -121,7 +121,7 @@ function calculations() {
 
       // displays Payment to user in table
       const Tag_row_payment = document.createElement("tr");
-      const Payment_i = document.createTextNode(payment_rounded);
+      const Payment_i = document.createTextNode("$" + payment_rounded);
       Tag_row_payment.appendChild(Payment_i);
       const id_payment = document.getElementById("Payment" + i);
       id_payment.appendChild(Tag_row_payment);
