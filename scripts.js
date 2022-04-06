@@ -51,21 +51,21 @@ function calculations() {
     const numerator =
       principle * monthly_rate * Math.pow(1 + monthly_rate, months);
     const denominator = Math.pow(1 + monthly_rate, months) - 1;
-    var payment = numerator / denominator;
+    const payment = numerator / denominator;
     //payment rounded calculation
     payment_rounded = Math.round(payment * 100) / 100;
     var payment_rounded = "$" + payment_rounded.toFixed(2);
-    var total_principle = principle;
-    var total_loan = months * parseFloat(payment);
-    var total_interest = parseFloat(total_loan) - principle;
+    const total_principle = principle;
+    const total_loan = months * parseFloat(payment);
+    const total_interest = parseFloat(total_loan) - principle;
 
     //percentage/ratio calculations
-    var percentage_principle = principle / total_loan;
-    var percentage_interest = total_interest / total_loan;
+    const percentage_principle = principle / total_loan;
+    const percentage_interest = total_interest / total_loan;
 
     // rounded up numbers
-    total_loan = "$" + Math.round(total_loan * 100) / 100;
-    total_interest = "$" + Math.round(total_interest * 100) / 100;
+    const total_loan_rounded = "$" + Math.round(total_loan * 100) / 100;
+    const total_interest_rounded = "$" + Math.round(total_interest * 100) / 100;
 
     // displays: Monthly Payment to user
     document.getElementById("monthly_payments").innerHTML =
@@ -75,10 +75,10 @@ function calculations() {
       "Total Principle: $" + principle;
     // displays: Total Interest to user
     document.getElementById("total_interest").innerHTML =
-      "Total Interest: " + total_interest;
+      "Total Interest: " + total_interest_rounded;
     // displays: Total Loan to user
     document.getElementById("total_loan").innerHTML =
-      "Total Loan: " + total_loan;
+      "Total Loan: " + total_loan_rounded;
 
     // Pie chart of percentage/ratio of principle and Interest displayed to user
     google.charts.setOnLoadCallback(
