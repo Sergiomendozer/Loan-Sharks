@@ -126,14 +126,14 @@ function calculations() {
       const id_payment = document.getElementById("Payment" + i);
       id_payment.appendChild(Tag_row_payment);
     }
-    var remaining_balance = principle;
-    var interest_paid = 0;
+    let remaining_balance = principle;
+    let interest_paid = 0;
     //displays following elements to user in a table: Principle, Interest amount, Interest paid, Remaining Balance
     // for loop is used to display column by column elements in the table
-    for (var c = 1; c < months + 1; c++) {
+    for (let c = 1; c < months + 1; c++) {
       //Calculations for Principle, Interest amount, Interest paid, Remaining Balance
-      var interest_amount = monthly_rate * remaining_balance;
-      var c_principle = payment - interest_amount;
+      let interest_amount = monthly_rate * remaining_balance;
+      let c_principle = payment - interest_amount;
       interest_paid = interest_paid + interest_amount;
       remaining_balance = remaining_balance - c_principle;
 
@@ -141,7 +141,7 @@ function calculations() {
       c_principle = Math.round(c_principle * 100) / 100;
       interest_amount = Math.round(interest_amount * 100) / 100;
       interest_paid_rounded = Math.round(interest_paid * 100) / 100;
-      var remaining_balance_rounded = Math.round(remaining_balance * 100) / 100;
+      let remaining_balance_rounded = Math.round(remaining_balance * 100) / 100;
 
       // makes a html tag for Principle
       const table_tag_principle = document.createElement("tr");
