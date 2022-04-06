@@ -47,10 +47,10 @@ function calculations() {
 
     // payment calculations
     rate = rate / 100; // converts percentage to decimal
-    var monthly_rate = rate / 12;
-    var numerator =
+    const monthly_rate = rate / 12;
+    const numerator =
       principle * monthly_rate * Math.pow(1 + monthly_rate, months);
-    var denominator = Math.pow(1 + monthly_rate, months) - 1;
+    const denominator = Math.pow(1 + monthly_rate, months) - 1;
     var payment = numerator / denominator;
     //payment rounded calculation
     payment_rounded = Math.round(payment * 100) / 100;
