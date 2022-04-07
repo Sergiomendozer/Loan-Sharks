@@ -61,15 +61,15 @@ function calculations() {
     const denominator = Math.pow(1 + monthly_rate, months) - 1;
     const payment = numerator / denominator;
     //payment rounded calculation
-    payment_rounded = Math.round(payment * 100) / 100;
-    var payment_rounded = payment_rounded.toFixed(2);
-    var total_principle = principle;
-    var total_loan = months * parseFloat(payment);
-    var total_interest = parseFloat(total_loan) - principle;
+    let payment_rounded = Math.round(payment * 100) / 100;
+    payment_rounded = payment_rounded.toFixed(2);
+    let total_principle = principle;
+    let total_loan = months * parseFloat(payment);
+    let total_interest = parseFloat(total_loan) - principle;
 
     //percentage/ratio calculations
-    var percentage_principle = principle / total_loan;
-    var percentage_interest = total_interest / total_loan;
+    const percentage_principle = principle / total_loan;
+    const percentage_interest = total_interest / total_loan;
 
     // rounded up numbers
     total_loan = "$" + Math.round(total_loan * 100) / 100;
@@ -134,14 +134,14 @@ function calculations() {
       const id_payment = document.getElementById("Payment" + i);
       id_payment.appendChild(Tag_row_payment);
     }
-    var remaining_balance = principle;
-    var interest_paid = 0;
+    let remaining_balance = principle;
+    let interest_paid = 0;
     //displays following elements to user in a table: Principle, Interest amount, Interest paid, Remaining Balance
     // for loop is used to display column by column elements in the table
-    for (var c = 1; c < months + 1; c++) {
+    for (let c = 1; c < months + 1; c++) {
       //Calculations for Principle, Interest amount, Interest paid, Remaining Balance
-      var interest_amount = monthly_rate * remaining_balance;
-      var c_principle = payment - interest_amount;
+      let interest_amount = monthly_rate * remaining_balance;
+      let c_principle = payment - interest_amount;
       interest_paid = interest_paid + interest_amount;
       remaining_balance = remaining_balance - c_principle;
 
@@ -149,7 +149,7 @@ function calculations() {
       c_principle = Math.round(c_principle * 100) / 100;
       interest_amount = Math.round(interest_amount * 100) / 100;
       interest_paid_rounded = Math.round(interest_paid * 100) / 100;
-      var remaining_balance_rounded = Math.round(remaining_balance * 100) / 100;
+      let remaining_balance_rounded = Math.round(remaining_balance * 100) / 100;
 
       // makes a html tag for Principle
       const table_tag_principle = document.createElement("tr");
