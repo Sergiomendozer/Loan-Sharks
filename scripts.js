@@ -11,12 +11,12 @@ function drawChart(a, b) {
     ["Interest", b],
   ]);
 
-  var options = {
+  let options = {
     title: "Principle & Interest percentages",
     backgroundColor: { fill: "#e2e2e2" },
   };
 
-  var chart = new google.visualization.PieChart(
+  let chart = new google.visualization.PieChart(
     document.getElementById("pie_chart")
   );
 
@@ -51,11 +51,11 @@ function calculations() {
 
     // payment calculations
     rate = rate / 100; // converts percentage to decimal
-    var monthly_rate = rate / 12;
-    var numerator =
+    const monthly_rate = rate / 12;
+    const numerator =
       principle * monthly_rate * Math.pow(1 + monthly_rate, months);
-    var denominator = Math.pow(1 + monthly_rate, months) - 1;
-    var payment = numerator / denominator;
+    const denominator = Math.pow(1 + monthly_rate, months) - 1;
+    const payment = numerator / denominator;
     //payment rounded calculation
     payment_rounded = Math.round(payment * 100) / 100;
     var payment_rounded = "$" + payment_rounded.toFixed(2);
