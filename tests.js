@@ -39,3 +39,8 @@
 // var principle = parseFloat(160000);
 // var months = parseFloat(60);
 // var rate = parseFloat(4.43) / 100;
+
+{
+  /* <button type="button" class="btn btn-primary btn-lg" onclick="test()">Test</button>
+<button type="button" class="btn btn-primary btn-lg" onclick="test2()">Test2</button> */
+}

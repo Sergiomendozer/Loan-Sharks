@@ -24,16 +24,16 @@ function drawChart(a, b) {
 }
 
 // test function was used to testing values input quickly
-function test() {
-  document.getElementById("principle").value = 5000;
-  document.getElementById("months").value = 12;
-  document.getElementById("rate").value = 6;
-}
-function test2() {
-  document.getElementById("principle").value = 50000;
-  document.getElementById("months").value = 7;
-  document.getElementById("rate").value = 19.6;
-}
+// function test() {
+//   document.getElementById("principle").value = 5000;
+//   document.getElementById("months").value = 12;
+//   document.getElementById("rate").value = 6;
+// }
+// function test2() {
+//   document.getElementById("principle").value = 50000;
+//   document.getElementById("months").value = 7;
+//   document.getElementById("rate").value = 19.6;
+// }
 // function takes inputs and calculates important loan information that is displayed
 function calculations() {
   // clear/delete table that displays loan information from previous calculation
