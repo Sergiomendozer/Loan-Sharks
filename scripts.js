@@ -29,7 +29,11 @@ function test() {
   document.getElementById("months").value = 12;
   document.getElementById("rate").value = 6;
 }
-
+function test2() {
+  document.getElementById("principle").value = 50000;
+  document.getElementById("months").value = 7;
+  document.getElementById("rate").value = 19.6;
+}
 // function takes inputs and calculates important loan information that is displayed
 function calculations() {
   // clear/delete table that displays loan information from previous calculation
@@ -58,7 +62,7 @@ function calculations() {
     const payment = numerator / denominator;
     //payment rounded calculation
     payment_rounded = Math.round(payment * 100) / 100;
-    var payment_rounded = "$" + payment_rounded.toFixed(2);
+    var payment_rounded = payment_rounded.toFixed(2);
     var total_principle = principle;
     var total_loan = months * parseFloat(payment);
     var total_interest = parseFloat(total_loan) - principle;
@@ -73,7 +77,7 @@ function calculations() {
 
     // displays: Monthly Payment to user
     document.getElementById("monthly_payments").innerHTML =
-      "Monthly Payment: " + payment_rounded;
+      "Monthly Payment: $" + payment_rounded;
     // displays: Total Principle to user
     document.getElementById("total_principle").innerHTML =
       "Total Principle: $" + principle;
@@ -125,7 +129,7 @@ function calculations() {
 
       // displays Payment to user in table
       const Tag_row_payment = document.createElement("tr");
-      const Payment_i = document.createTextNode(payment_rounded);
+      const Payment_i = document.createTextNode("$" + payment_rounded);
       Tag_row_payment.appendChild(Payment_i);
       const id_payment = document.getElementById("Payment" + i);
       id_payment.appendChild(Tag_row_payment);
