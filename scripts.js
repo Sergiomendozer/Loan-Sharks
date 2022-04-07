@@ -20,11 +20,11 @@ function drawChart(a, b) {
 }
 
 // test function was used to testing values input quickly
-function test() {
-  document.getElementById("principle").value = 5000;
-  document.getElementById("months").value = 12;
-  document.getElementById("rate").value = 6;
-}
+// function test() {
+//   document.getElementById("principle").value = 5000;
+//   document.getElementById("months").value = 12;
+//   document.getElementById("rate").value = 6;
+// }
 
 // function takes inputs and calculates important loan information that is displayed
 function calculations() {
