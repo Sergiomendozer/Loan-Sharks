@@ -1,3 +1,7 @@
+var principle = null;
+var months = null;
+var rate = null;
+
 //  function is used to create a pie chart of percentage/ratio of principle and Interest
 google.charts.load("current", { packages: ["corechart"] });
 function drawChart(a, b) {
@@ -7,12 +11,12 @@ function drawChart(a, b) {
     ["Interest", b],
   ]);
 
-  let options = {
+  var options = {
     title: "Principle & Interest percentages",
     backgroundColor: { fill: "#e2e2e2" },
   };
 
-  let chart = new google.visualization.PieChart(
+  var chart = new google.visualization.PieChart(
     document.getElementById("pie_chart")
   );
 
@@ -20,20 +24,20 @@ function drawChart(a, b) {
 }
 
 // test function was used to testing values input quickly
-// function test() {
-//   document.getElementById("principle").value = 5000;
-//   document.getElementById("months").value = 12;
-//   document.getElementById("rate").value = 6;
-// }
+function test() {
+  document.getElementById("principle").value = 5000;
+  document.getElementById("months").value = 12;
+  document.getElementById("rate").value = 6;
+}
 
 // function takes inputs and calculates important loan information that is displayed
 function calculations() {
   // clear/delete table that displays loan information from previous calculation
   clear_table();
   // below grabs the three inputs user gave
-  let principle = parseFloat(document.getElementById("principle").value);
-  let months = parseFloat(document.getElementById("months").value);
-  let rate = parseFloat(document.getElementById("rate").value);
+  principle = parseFloat(document.getElementById("principle").value);
+  months = parseFloat(document.getElementById("months").value);
+  rate = parseFloat(document.getElementById("rate").value);
   //NaN is short for "Not-a-Number", and if no input is entered
   //isNaN() is a function that determines whether a value is NaN or not
   if (
@@ -47,38 +51,38 @@ function calculations() {
 
     // payment calculations
     rate = rate / 100; // converts percentage to decimal
-    const monthly_rate = rate / 12;
-    const numerator =
+    var monthly_rate = rate / 12;
+    var numerator =
       principle * monthly_rate * Math.pow(1 + monthly_rate, months);
-    const denominator = Math.pow(1 + monthly_rate, months) - 1;
-    const payment = numerator / denominator;
+    var denominator = Math.pow(1 + monthly_rate, months) - 1;
+    var payment = numerator / denominator;
     //payment rounded calculation
-    const payment_rounded = Math.round(payment * 100) / 100;
-    // var payment_rounded = "$" + payment_rounded.toFixed(2);
-    const total_principle = principle;
-    const total_loan = months * parseFloat(payment);
-    const total_interest = parseFloat(total_loan) - principle;
+    payment_rounded = Math.round(payment * 100) / 100;
+    var payment_rounded = "$" + payment_rounded.toFixed(2);
+    var total_principle = principle;
+    var total_loan = months * parseFloat(payment);
+    var total_interest = parseFloat(total_loan) - principle;
 
     //percentage/ratio calculations
-    const percentage_principle = principle / total_loan;
-    const percentage_interest = total_interest / total_loan;
+    var percentage_principle = principle / total_loan;
+    var percentage_interest = total_interest / total_loan;
 
     // rounded up numbers
-    const total_loan_rounded = "$" + Math.round(total_loan * 100) / 100;
-    const total_interest_rounded = "$" + Math.round(total_interest * 100) / 100;
+    total_loan = "$" + Math.round(total_loan * 100) / 100;
+    total_interest = "$" + Math.round(total_interest * 100) / 100;
 
     // displays: Monthly Payment to user
     document.getElementById("monthly_payments").innerHTML =
-      "Monthly Payment: $" + payment_rounded;
+      "Monthly Payment: " + payment_rounded;
     // displays: Total Principle to user
     document.getElementById("total_principle").innerHTML =
       "Total Principle: $" + principle;
     // displays: Total Interest to user
     document.getElementById("total_interest").innerHTML =
-      "Total Interest: " + total_interest_rounded;
+      "Total Interest: " + total_interest;
     // displays: Total Loan to user
     document.getElementById("total_loan").innerHTML =
-      "Total Loan: " + total_loan_rounded;
+      "Total Loan: " + total_loan;
 
     // Pie chart of percentage/ratio of principle and Interest displayed to user
     google.charts.setOnLoadCallback(
@@ -121,19 +125,19 @@ function calculations() {
 
       // displays Payment to user in table
       const Tag_row_payment = document.createElement("tr");
-      const Payment_i = document.createTextNode("$" + payment_rounded);
+      const Payment_i = document.createTextNode(payment_rounded);
       Tag_row_payment.appendChild(Payment_i);
       const id_payment = document.getElementById("Payment" + i);
       id_payment.appendChild(Tag_row_payment);
     }
-    let remaining_balance = principle;
-    let interest_paid = 0;
+    var remaining_balance = principle;
+    var interest_paid = 0;
     //displays following elements to user in a table: Principle, Interest amount, Interest paid, Remaining Balance
     // for loop is used to display column by column elements in the table
-    for (let c = 1; c < months + 1; c++) {
+    for (var c = 1; c < months + 1; c++) {
       //Calculations for Principle, Interest amount, Interest paid, Remaining Balance
-      let interest_amount = monthly_rate * remaining_balance;
-      let c_principle = payment - interest_amount;
+      var interest_amount = monthly_rate * remaining_balance;
+      var c_principle = payment - interest_amount;
       interest_paid = interest_paid + interest_amount;
       remaining_balance = remaining_balance - c_principle;
 
@@ -141,7 +145,7 @@ function calculations() {
       c_principle = Math.round(c_principle * 100) / 100;
       interest_amount = Math.round(interest_amount * 100) / 100;
       interest_paid_rounded = Math.round(interest_paid * 100) / 100;
-      let remaining_balance_rounded = Math.round(remaining_balance * 100) / 100;
+      var remaining_balance_rounded = Math.round(remaining_balance * 100) / 100;
 
       // makes a html tag for Principle
       const table_tag_principle = document.createElement("tr");
